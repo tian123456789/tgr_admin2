@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+	<aside th:fragment="aside">
+		<div id="sidebar" class="nav-collapse" style="padding-bottom: 32px;"
+			th:with="action=${#httpServletRequest.getServletPath()}">
+			<ul class="sidebar-menu" id="nav-accordion">
+				<li>
+					<a th:class="${action == '/'} ? 'active' : ''" href="/">
+						<i class="fa fa-dashboard"></i>
+						<span>寡人的天下</span>
+					</a>
+				</li>
+
+				<li class="sub-menu">
+					<a href="javascript:;" th:class="${action.startsWith('/user')} ?  'active' : ''">
+						<i class="fa fa-film"></i>
+						<span>人员管理</span>
+					</a>
+					<ul class="sub">
+						<li th:class="${action.startsWith('/user/index')} ? 'active' : ''">
+							<a th:href="@{/user/index}">管理员列表</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</aside>
+</body>
+</html>

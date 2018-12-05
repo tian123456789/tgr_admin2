@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/img/favicon.png" />
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<link href="/css/bootstrap-reset.css" rel="stylesheet" />
+
+<!--external css-->
+<link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link href="/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen" />
+<link rel="stylesheet" href="/css/owl.carousel.css" type="text/css" />
+
+<!-- Custom styles for this template -->
+<link href="/css/style.css" rel="stylesheet" />
+<link href="/css/style-responsive.css" rel="stylesheet" />
+<link href="/assets/toastr/toastr.min.css" rel="stylesheet" />
+
+<!-- bootstrap-table 相关 -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css"/>
+
+<!--右键弹窗插件-->
+<link href="/rightclick/jquery.contextMenu.css" rel="stylesheet"/>
+
+<!-- 预先加载jquery 防止就绪函数异常 -->
+<script src="https://cdn.staticfile.org/jquery/3.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+	//表格右键复制内容
+	/* $(function() {
+		
+		//复制到剪贴板
+		var clipboard = new ClipboardJS('#copybtn');
+	    clipboard.on('success', function(e) {
+	        console.log(e);
+	    });
+	
+	    clipboard.on('error', function(e) {
+	        console.log(e);
+	    });
+	    
+		//右键弹出
+		$.contextMenu({
+			//包含img标签以及做了特定标记的标签不需要右键弹出
+		    selector: "table[id] td:not(:has(img))",
+		    items: {
+		    	//复制操作
+		        copy: {
+		            name: "copy",
+		            callback: function(itemKey, opt, rootMenu, originalEvent){
+		            	var text = $(this).text();
+		            	var str = $.trim(text);
+		            	$("#copyinput").val(str);
+		            	$("#copybtn").click();
+		            }
+				}
+		    }
+		});
+	}); */
+</script>
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+<!--[if lt IE 9]>
+	    <script src="js/html5shiv.js"></script>
+	    <script src="js/respond.min.js"></script>
+	  <![endif]-->
+</head>
+
+<body>
+
+	<section id="container">
+	
+		<!-- td右键复制内容通用按钮和输入框 -->
+		<button id="copybtn" data-clipboard-target="#copyinput" style="display: none;">Copy</button>
+		<input id="copyinput" value="" style="position: absolute;left: -100px;top: -100px;" class="form-control"/>
+	
+		<!--header start-->
+		<header class="header white-bg">
+			<div class="sidebar-toggle-box">
+				<div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+			</div>
+			
+			<!--logo start-->
+			<a href="/" class="logo">
+				<span style="color:blue">田国瑞的帝国</span>
+			</a>
+			<!--logo end-->
+			
+			<div class="top-nav ">
+				<!--search & user info start-->
+				<ul class="nav pull-right top-menu" th:if="${session.currentUser != null}">
+					<!-- user login dropdown start-->
+					<li class="dropdown">
+						<!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<span class="username" th:text="${session.currentUser.nickname}"></span>
+							<b class="caret"></b>
+						</a> -->
+						<ul class="dropdown-menu" style="min-width: 24px; padding: 4px 6px;">
+							<li>
+								<form th:action="@{/logout}" method="post">
+									<input type="submit" value="退出" class="btn btn-danger btn-xs" />
+								</form>
+							</li>
+						</ul>
+					</li>
+					<!-- user login dropdown end -->
+				</ul>
+				<!--search & user info end-->
+			</div>
+		</header>
+		<!--header end-->
+
+		<!--sidebar start-->
+		<aside th:include="aside::aside"></aside>
+		<!--sidebar end-->
+
+		<!--main content start-->
+		<section id="main-content">
+			<section class="wrapper" style="padding-bottom: 80px;">
+				<div layout:fragment="content"></div>
+			</section>
+		</section>
+		<!--main content end-->
+		
+		<!--footer start-->
+		<footer class="site-footer"
+			style="position: fixed; bottom: 0; width: 100%; background: #2a3542; z-index: 10;">
+			<div class="text-center">
+				2018 &copy; Admin by Tgr.
+				<a href="javascript:void();" class="go-top">
+					<i class="fa fa-angle-up"></i>
+				</a>
+			</div>
+		</footer>
+		<!--footer end-->
+	</section>
+
+
+	
+	<!-- js placed at the end of the document so the pages load faster -->
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script class="include" type="text/javascript" src="/js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="/js/jquery.scrollTo.min.js"></script>
+	<script src="/js/jquery.nicescroll.js" type="text/javascript"></script>
+	<script src="/js/jquery.sparkline.js" type="text/javascript"></script>
+	<script src="/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
+	<script src="/js/owl.carousel.js"></script>
+	<script src="/js/jquery.customSelect.min.js"></script>
+	<script src="/js/respond.min.js"></script>
+
+	<!--common script for all pages-->
+	<script src="/js/common-scripts.js"></script>
+	<script src="/assets/toastr/toastr.min.js"></script>
+	
+	<!-- bootstrap-table -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
+
+	<!--表格行 拖拽需要的js文件-->
+	<script src="/js/jquery.tablednd.js"></script>
+	<script src="/js/bootstrap-table-reorder-rows.js"></script>
+	
+	<!--右键弹出插件-->
+	<script src="/rightclick/jquery.contextMenu.js"></script>
+	
+	<!--复制到剪切板插件-->
+	<script src="/clipboard/clipboard.js"></script>
+</body>
+</html>

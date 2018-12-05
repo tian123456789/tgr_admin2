@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<div th:fragment="pages" style="text-align: center;">
+		<th:ul class="pagination" th:if="${paging.totalPages} gt 0">
+			<li class="disabled" th:if="${paging.currentIndex} == 1">
+				<a href="javascript:void();">&lt;&lt;</a>
+			</li>
+			<li class="disabled" th:if="${paging.currentIndex} == 1">
+				<a href="javascript:void();">&lt;</a>
+			</li>
+			<li th:if="${paging.currentIndex} != 1">
+				<a th:href="@{${url}(page=1)} + ${paging.params}">&lt;&lt;</a>
+			</li>
+			<li th:if="${paging.currentIndex} != 1">
+				<a th:href="@{${url}(page=${paging.currentIndex - 1})} + ${paging.params}">&lt;</a>
+			</li>
+
+			<li th:each="i : ${#numbers.sequence(paging.beginIndex, paging.endIndex)}"
+				th:class="${i == paging.currentIndex} ? 'active' : ''">
+				<a th:href="@{${url}(page=${i})} + ${paging.params}">
+					<span th:text="${i}"></span>
+				</a>
+			</li>
+
+			<li class="disabled" th:if="${paging.currentIndex == paging.totalPages}">
+				<a href="javascript:void();">&gt;</a>
+			</li>
+			<li class="disabled" th:if="${paging.currentIndex == paging.totalPages}">
+				<a href="javascript:void();">&gt;&gt;</a>
+			</li>
+			<li th:if="${paging.currentIndex != paging.totalPages}">
+				<a th:href="@{${url}(page=${paging.currentIndex + 1})} + ${paging.params}">&gt;</a>
+			</li>
+			<li th:if="${paging.currentIndex != paging.totalPages}">
+				<a th:href="@{${url}(page=${paging.totalPages})} + ${paging.params}">&gt;&gt;</a>
+			</li>
+		</th:ul>
+	</div>
+
+</body>
+</html>

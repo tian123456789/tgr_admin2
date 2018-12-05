@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<div th:fragment="tip">
+		<div th:if="${not #strings.isEmpty(error)}" align="center" class="alert alert-danger" role="alert"
+			th:text="${error}"></div>
+		<div th:if="${not #strings.isEmpty(flash)}" align="center" class="alert alert-success"
+			role="alert" th:text="${flash}"></div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout">
+<head>
+<title>田国瑞的帝国时代</title>
+<style type="text/css"> 
+	/* html,body{
+				width: 100%;
+				height: 100%;
+			 }
+ 
+			.mui-content{
+				background: url(image/huanglongqi.jpg) bottom center no-repeat #efeff4;
+				background-size: 100% 100%;
+				width: 100%;
+				height: 100%;
+			} */
+			
+			 .images{
+				width:100%;
+				height:100%;
+				display:flex;
+				align-items:center;
+				justify-content:center;
+			} 	
+
+			.images img{
+    			width:100%;
+   				height:100%;
+			} 
+			
+			#bo{
+			display:inline-block;
+			width:100%;/*图片自适应的父容器的宽*/
+			height:100%; *//*图片自适应的父容器的高*/
+			}  
+			#bo img{
+			display: block;
+　		    　max-width: 100%;
+　　			height: 40px;
+			} 
+ 
+			
+</style> 
+</head>
+
+	<body>
+	
+		<div layout:fragment="content">
+			<div class="row state-overview">
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
+					<section class="panel">
+						<div id = "tip" class="tip">
+								<!-- <img src="image/huanglongqi.jpg"/> -->
+								<!-- <a href="privilege.html">access privilege.html</a> -->
+					    </div>
+					</section>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-lg-12">
+					<section class="panel">
+						<div class="panel-body">
+							<div id = "bo" class="images">
+								<!-- <a href="www.baidu.com"> -->
+								<img id="images" name="images" src="img/my/huanglongqi.jpg" alt="LOGO" />
+								<!-- </a> -->
+						    </div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	
+	</body>
+</html>
