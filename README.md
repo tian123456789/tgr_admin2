@@ -90,9 +90,40 @@ springBoot主要特点
 				
 	
 				1.2 使用属性进行精细化配置
+	2. 起步依赖
+		程序需要 Spring MVC 的功能，那么需要引入 spring-core 、 spring-web
+		和 spring-webmvc 等依赖，但是如果程序使用 Spring Boot 的起步依赖，只 需要加入44
+		spring-boot-starter-web 的依赖，它会自动引入 SpringMVC 功能的相关依赖。
+	
+	3. Actuator 组件
+		Spring Boot 能够提供自动装配和起步依赖 ， 解决了以前重量级的 xml 配置和依赖管理的
+		各种问题。 一切都显得那么敏捷、智能，但是却带来了一系列的其他问题 ： 开发者该怎么知道
+		应用程序中注入了哪些 Bean ？ 应用程序的运行状态是怎么样的？为了解决这些问题 ， Spring
+		Boot 提供了 Actuator 组件，井提供了对程序的运行状态的监控功能。。
 
 ###########################################################################################################################################
-
+将配置文件属性注入bean 并放进IOC容器
+	1.定义spring的一个实体bean装载配置文件信息，其它要使用配置信息是注入该实体bean
+		@Component
+		@ConfigurationProperties(locations = "classpath:mail.properties", ignoreUnknownFields = false, prefix = "mail")
+		----------
+		@Autowired
+    	private MailProperties mailProperties;
+	2.@Bean+@ConfigurationProperties
+		 @Bean
+   		 @ConfigurationProperties(locations = "classpath:mail.properties", prefix = "mail")
+    	 public MailProperties mailProperties(){
+    3.@ConfigurationProperties + @EnableConfigurationProperties
+    	@ConfigurationProperties(locations = "classpath:mail.properties", ignoreUnknownFields = false, prefix = "mail")
+		public class MailProperties {}
+		-------------------
+		@EnableConfigurationProperties(MailProperties.class)
+		public class TestProperty1 {
+   		 @Autowired
+    	private MailProperties mailProperties;
+    	
+@EnableConfigurationProperties注解。该注解是用来开启对@ConfigurationProperties注解配置Bean的支持。也就是@EnableConfigurationProperties注解告诉Spring Boot 能支持@ConfigurationProperties。如果不指定会看到没有可利用bean异常: 
+例:
 配置文件yaml
 	例如属性my.number: ${random.int) 配置到javaBean 利用@ConfigurationProperties(prefix =”my”)注解到javaBean类上
 													+@Component项目启动时 通过包扫描放入IOC容器
@@ -141,9 +172,7 @@ org.springframework.beans.factory.BeanDefinitionStoreException: Failed to proces
 	
 https://www.e-learn.cn/content/java/1069530
 ###########################################################################################################################################
-		
-			
-	
+
 	
 	
 

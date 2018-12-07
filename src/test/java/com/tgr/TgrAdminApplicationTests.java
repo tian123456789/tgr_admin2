@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.itextpdf.text.log.SysoCounter;
 import com.tgr.admin.configPoepertiesToBean.ConfigBean;
 
 @RunWith(SpringJUnit4ClassRunner.class)//SpringJUnit4ClassRunner	对Spring应用程序进行集成测试
 @ContextConfiguration(classes = AdminApplication.class)//加载应用程序上下文
 //@SpringBootTest
+//@SpringBootTest(webEnv 工 ronment = SpringBootTest.WebEnvironment . RANDOM_PORT)//上下文换成此
+													//还可以加载其他的 而且指定Web测试环境的默认端口号
 public class TgrAdminApplicationTests {
 
 	@Autowired

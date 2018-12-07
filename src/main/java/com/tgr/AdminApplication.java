@@ -18,9 +18,31 @@ import org.springframework.web.client.RestTemplate;
 
 import com.tgr.admin.nosql.RedisService;
 
+/*
+ * 	@SpringBootApplication 
+ * 注解包含了
+ * 			@SpringBootConfiguration  注释其是一个spring-boot入口 
+ * 			@EnableAutoConfiguration 和
+ * 			@ComponentScan 	开启了包扫 描、 配置和 自动配置 的功能 。
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+*/
 
-//spring-boot应用程序入口 也叫主程序
-@SpringBootApplication//注释其是一个spring-boot入口
+
+
+@SpringBootApplication//
 //@ComponentScan(basePackages= {"com.tgr.security"})//spring扫描我的security配置
 @SuppressWarnings("all")
 public class AdminApplication {
