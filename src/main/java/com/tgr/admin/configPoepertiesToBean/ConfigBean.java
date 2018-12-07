@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 
 //有问题 p65
 @Configuration
-@PropertySource(value = "classpath:config-properties.yaml")
-@ConfigurationProperties(prefix = "config_bean.test")
+@PropertySource(value = "classpath:configproperties.yaml")
+@ConfigurationProperties(prefix = "bean1.test")
 @Component
 @SuppressWarnings("all")
 public class ConfigBean {

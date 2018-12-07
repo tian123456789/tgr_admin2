@@ -63,13 +63,33 @@ mvn install:install-file -DgroupId=spring-boot-starter-social-facebook -Dartifac
 ###########################################################################################################################################
 
 springBoot主要特点
-	自动装配	
+	1.自动装配	
 		当程序的 porn 文件引入了 Feign 的起步依赖， Spring Boot 就会在程序中自动引入默认的 Feign 的配置 Bean 。
 	spring 可以在配置文件显示声明全部的Bean,但这是不明智的,就是一个比萨自己选择全部配料的加载
 	spring boot 是直接选择一个有特色的 让spring boot处理各种细节比自己声明上下文全部Bean要容易很多
-	起步依赖
-		spring-boot-starter-web 的依赖，它会自动引入 SpringMVC 功能的相关依赖。
-	Actuator 对运行状态的监控。
+		1.1 实现方式
+			
+		1.1 使用显式配置进行覆盖
+			1.1.1 使用注意举例
+			@Configuration
+			@EnableConfigurationProperties
+			@ConditionalOnClass({ EnableWebSecurity.class })
+			@ConditionalOnMissingBean(WebSecurityConfiguration.class)
+			@ConditionalOnWebApplication
+			public class SpringBootWebSecurityConfiguration {
+			
+			如果我想应用此功能
+			看到@ConditionalOnClass注解后，你就应该知道Classpath里必须要有@EnableWebSecurity注解。
+				@ConditionalOnWebApplication 说 明 这 必 须 是 个 Web 应 用 程 序 。 					@ConditionalOnMissingBean注解才是我们的安全配置类关键所在。
+				@ConditionalOnMissingBean注解要求当下没有WebSecurityConfiguration类型的Bean。虽然				表面上我们并没有这么一个Bean，但通过在SecurityConfig上添加@EnableWeb-3.2 通过属性文件外置配置
+				Security注解，我们实际上间接创建了一个WebSecurityConfiguration Bean。所以在自动
+				配置时，这个Bean就已经存在了， @ConditionalOnMissingBean条件不成立， 				SpringBootWebSecurityConfiguration提供的配置就被跳过了。
+				虽然Spring Boot的自动配置和@ConditionalOnMissingBean让你能显式地覆盖那些可以
+				自动配置的Bean，但并不是每次都要做到这种程度。让我们来看看怎么通过设置几个简单的配置
+				属性调整自动配置组件吧
+				
+	
+				1.2 使用属性进行精细化配置
 
 ###########################################################################################################################################
 
