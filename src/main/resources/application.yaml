@@ -1,6 +1,13 @@
 #默认端口号
 server.port: 8080
 
+#指定为开发环境 可以应用application-dev.yaml
+spring.profiles.active: dev
+
+#开启springboot的debug模式
+#通过启用 debug=true属性；来让控制台打印自动配置报告，这样我们就可以很方便的知道哪些自动配置类生效；
+debug: true
+
 #日志
 # logger, to see logback-spring.xml
 logging.level: INFO

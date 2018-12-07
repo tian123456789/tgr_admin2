@@ -1,0 +1,4 @@
+#指定yaml为dev开发环境    此处开发环境的端口号  会覆盖默认环境的
+#另外，我们也可以通过 j盯a 寸ar 这种方式启动程序，并指定程序的配置文件，启动命令如下：
+# $ java -jar springbootdemo jar -- spring profiles active=dev
+#server.port: 8082
