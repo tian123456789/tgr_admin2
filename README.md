@@ -122,7 +122,9 @@ springBoot主要特点
    		 @Autowired
     	private MailProperties mailProperties;
     	
-@EnableConfigurationProperties注解。该注解是用来开启对@ConfigurationProperties注解配置Bean的支持。也就是@EnableConfigurationProperties注解告诉Spring Boot 能支持@ConfigurationProperties。如果不指定会看到没有可利用bean异常: 
+@EnableConfigurationProperties注解。该注解是用来开启对@ConfigurationProperties注解配置Bean的支持。也就是@EnableConfigurationProperties注解告诉Spring Boot 能支持@ConfigurationProperties。如果不指定会看到没有可利用bean异常
+
+@PropertySource 注解上加 location,并指明该配置文件的路径 
 例:
 配置文件yaml
 	例如属性my.number: ${random.int) 配置到javaBean 利用@ConfigurationProperties(prefix =”my”)注解到javaBean类上

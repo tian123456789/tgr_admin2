@@ -299,6 +299,14 @@
    			<version>1.5.9.RELEASE</version>
 		</dependency> -->
 		<!-- 安全策略结束 -->
+		
+		<!-- Actuator 安全监控 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<!-- Actuator 安全监控 -->
+		
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-jpamodelgen</artifactId>

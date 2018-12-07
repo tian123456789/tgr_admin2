@@ -24,20 +24,6 @@ import com.tgr.admin.nosql.RedisService;
  * 			@SpringBootConfiguration  注释其是一个spring-boot入口 
  * 			@EnableAutoConfiguration 和
  * 			@ComponentScan 	开启了包扫 描、 配置和 自动配置 的功能 。
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
 */
 
 
