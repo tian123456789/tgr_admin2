@@ -18,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.tgr.admin.nosql.RedisService;
 
+
 /*
  * 	@SpringBootApplication 
  * 注解包含了
@@ -27,7 +28,7 @@ import com.tgr.admin.nosql.RedisService;
 */
 
 
-
+//@EnableAdminServer 暂时不能用 其所依赖的其他bean我还没有
 @SpringBootApplication//
 //@ComponentScan(basePackages= {"com.tgr.security"})//spring扫描我的security配置
 @SuppressWarnings("all")

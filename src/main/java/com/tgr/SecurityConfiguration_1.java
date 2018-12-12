@@ -128,7 +128,7 @@ public class SecurityConfiguration_1 extends WebSecurityConfigurerAdapter {//创
 		web.ignoring().antMatchers("/assets/**", "/css/**", "/fonts/**", "/img/**", "/js/**","/clipboard/**","/js/**"
 				,"/rightclick/**",
 				"/swagger-ui.html","/swagger-resources/**","/v2/api-docs/**","/webjars/springfox-swagger-ui/**"
-				,"/druid","/druid/**","/static/**"
+				,"/druid","/druid/**","/static/**","http://127.0.0.1:9001/**"
 				);
 	}
 	

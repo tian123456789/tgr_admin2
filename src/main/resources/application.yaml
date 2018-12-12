@@ -147,10 +147,27 @@ securityconfig:
             #/**/delete/** = admin
   
 ############################################    Actuator  ##############################################################################
-  management:
-    port: 9001  #对外暴露的REST API接口的端口号 不指定为应用程序启动端口号
-    security:
-      enabled: false  #为了能够在浏览器展示效果不做安全验证
+#management:
+#  port: 9001  #对外暴露的REST API接口的端口号 不指定为应用程序启动端口号
+#  security: 
+#  enabled: false  #为了能够在浏览器展示效果不做安全验证
+
+management.context-path: /monitor
+management.security.enabled: false
+ 
+#GET /autoconfig 提供了 一份自动配置报告,记录哪些自动配置条件通过了,哪些没有通过
+#GET /configprops 描述配置属性如何注入 Bean
+#GET /beans 描述应用程序上下文里全部的 Bean,以及它们的关系
+#GET /dump 获取线程活动的快照
+#GET /env 获取全部环境属性
+#GET /env/{name} 根据名称获取特定的环境属性值
+#GET /health 应用程序的健康指标
+#GET /info 获取应用程序的信息
+#GET /mappings描述全部的URL路径，以及它们和控制器（包含 Actuator 端点〉的映射关系
+#GET /metrics 获取应用程序度盘信息，例如内存用 il}:;fri HTTP 的求计数
+#GET /metrics/{name} 获取程序的指定名称的度量信息
+#POST /shutdown 关闭应用程序，需要将 endpoints纣rntdown.enabled 设置为true
+#GET /trace 提供基本的 HTTP 请求跟踪信息（时间戳、 HTTP 头等）
  
           ###############################      提供的13个接口        ##########################
 #2018-12-07 16:13:23 INFO o.s.w.s.h.AbstractHandlerMethodMapping$MappingRegistry[543]: Mapped "{[/auditevents || /auditevents.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.boot.actuate.endpoint.mvc.AuditEventsMvcEndpoint.findByPrincipalAndAfterAndType(java.lang.String,java.util.Date,java.lang.String)

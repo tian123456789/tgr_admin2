@@ -307,10 +307,26 @@
 		</dependency>
 		<!-- Actuator 安全监控 -->
 		
+		<!--admin的服务 -->
+		<!-- <dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-server</artifactId>
+			<version>1.5.7</version>
+		</dependency> -->
+		
+		<!--admin的ui依赖 -->
+		<!-- <dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-server-ui</artifactId>
+			<version>1.5.7</version>
+		</dependency> -->
+		
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-jpamodelgen</artifactId>
 		</dependency>
+		
+		
 	</dependencies>
 	
 	<dependencyManagement>
