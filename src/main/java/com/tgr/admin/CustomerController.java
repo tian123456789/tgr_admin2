@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tgr.admin.entity.Customer;
+import com.tgr.admin.entity.QCustomer;
 import com.tgr.admin.service.CustomerSpringCacheService;
 
 import io.swagger.annotations.Api;
@@ -28,6 +29,8 @@ public class CustomerController extends BaseController {
 
 	@Autowired
 	private CustomerSpringCacheService customerSpringCacheService;
+	
+	private QCustomer c;
 	
 	@ApiOperation(value = "创建企业")
 	@PostMapping(value = "post")

@@ -46,11 +46,11 @@ import com.tgr.security.CustomFilterSecurityInterceptor;
 import com.tgr.security.CustomSecurityMetadataSource;
 import com.tgr.security.SecuritySettings;
 
-@Configuration
-@EnableWebSecurity//创建一个名为 springSecurityFilterChain 的Filter 具体实现验证靠configuer(HttpSecurity)
-//@Order(SecurityProperties.DEFAULT_FILTER_ORDER)//ACCESS_OVERRIDE_ORDER
-@EnableConfigurationProperties(value=SecuritySettings.class)
-@EnableGlobalMethodSecurity(prePostEnabled = true)//,securedEnabled =true
+//@Configuration
+//@EnableWebSecurity//创建一个名为 springSecurityFilterChain 的Filter 具体实现验证靠configuer(HttpSecurity)
+					//@Order(SecurityProperties.DEFAULT_FILTER_ORDER)//ACCESS_OVERRIDE_ORDER
+//@EnableConfigurationProperties(value=SecuritySettings.class)
+//@EnableGlobalMethodSecurity(prePostEnabled = true)//,securedEnabled =true
 @SuppressWarnings("all")
 public class SecurityConfiguration_1 extends WebSecurityConfigurerAdapter {//创建了一个Servlet Filter:springSecurityFilterChain
 																		   //其负责应用中的所有安全 包括:保护应用的URLS
